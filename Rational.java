@@ -112,6 +112,9 @@ public class Rational implements Comparable {
     //oNumerator becomes the product of this denom and r's num
     //returns the difference between thisNumerator and oNumerator
     public int compareTo(Object o) {
+    	if (!(o instanceof Rational)){
+    		throw new NullPointerException("\n" + compareTo().input " is not a rational");
+    	}
         int thisNumerator, oNumerator;
 	    Rational r = (Rational)o;
     	thisNumerator = num * r.denom;
