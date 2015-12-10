@@ -113,13 +113,19 @@ public class Rational implements Comparable {
     //returns the difference between thisNumerator and oNumerator
     public int compareTo(Object o) {
     	if (!(o instanceof Rational)){
-    		throw new NullPointerException("\n" + compareTo().input " is not a rational");
+    		throw new ClassCastException("\n" + compareTo().input + " is not a rational.");
     	}
+    	
+    	try{
         int thisNumerator, oNumerator;
 	    Rational r = (Rational)o;
     	thisNumerator = num * r.denom;
     	oNumerator = denom * r.num;
     	return thisNumerator - oNumerator;
+    	}
+    	catch (NullPointerException){
+    		System.err.println("\nInput is Null.")
+    	}
     }
 
     //overridden equals method
